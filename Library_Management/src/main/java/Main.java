@@ -7,36 +7,18 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        Db.createConnection();
-        int choice;
-        boolean flag = true;
         System.out.println("--------Library Management--------");
-//while(flag){
-//    System.out.println("Enter Choice");
-//    System.out.println("1.User");
-//    System.out.println("2.Librarian");
-//    System.out.println("3.Exit");
-//   choice = Integer.parseInt(sc.next());
-//    switch(choice){
-//        case 1:
-//            UserView.userView();
-//            break;
-//        case 2:
-//            LibrarianView.librarianView();
-//            break;
-//        case 3:
-//            flag = false;
-//            break;
-//
-//    }
-//}
-      if (Person.login()){
+
+        Person.login();
+      if (Person.is_admin == 1){
 
           LibrarianView.librarianView();
       }
-      else {
+      else if(Person.is_admin == 0) {
           UserView.userView();
+      }
+      else{
+          System.out.println("User not available");
       }
 
 

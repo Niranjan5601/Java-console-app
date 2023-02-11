@@ -4,8 +4,8 @@ import java.sql.*;
 
 public class Db {
 
-private static Connection connection;
-        public static void createConnection()  {
+private static Connection connection = null;
+        static  {
            final String url = "jdbc:mysql://localhost:3306/library";
            final String username = "root";
            final String password = "root";
