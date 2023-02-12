@@ -1,7 +1,7 @@
 package Model;
 
 import Database.Db;
-import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
+
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -62,8 +62,6 @@ public class Person {
 
       }
 
-
-
         return new Person(null,null,-1);
     }
 
@@ -88,6 +86,19 @@ public class Person {
         }
         System.out.println("--------------------------------------------------");
     }
+    public static boolean  addUser(String name , String password,String privilege){
+        try{
+            Statement st =  conn.createStatement();
+            String query = "INSERT INTO USERS(USERNAME, USR_PASSWORD, IS_ADMIN) VALUES('"+name +"'," + "'" +password+"',"+privilege +")";
+            st.executeUpdate(query);
+            st.close();
+            return true;
 
+        }catch(Exception e){
+            System.out.println(e);
+        }
+
+        return false;
+    }
 
 }
